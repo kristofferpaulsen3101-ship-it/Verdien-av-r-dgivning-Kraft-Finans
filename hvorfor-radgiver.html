@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hvorfor rådgiver – Kraft Finans Sandnes</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Alpha breakdown bars */
+    .alpha-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .alpha-label { width: 200px; font-size: 0.88rem; color: var(--text-muted); flex-shrink: 0; }
+    .alpha-bar-wrap { flex: 1; background: var(--light-bg); border-radius: 3px; height: 10px; overflow: hidden; }
+    .alpha-bar { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.6s ease; }
+    .alpha-pct { width: 40px; text-align: right; font-size: 0.88rem; font-weight: 700; color: var(--accent); flex-shrink: 0; }
+
+    /* Numbered reason cards */
+    .reason-card {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 2rem;
+      border-top: 3px solid var(--accent);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .reason-card:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(33,39,30,0.1); }
+    .reason-number { font-size: 2.8rem; font-weight: 700; color: var(--accent); opacity: 0.35; line-height: 1; margin-bottom: 0.75rem; }
+    .reason-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 0.6rem; }
+    .reason-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* Bias cards */
+    .bias-card {
+      background: var(--light-bg);
+      border-radius: 4px;
+      padding: 1.75rem;
+      border-left: 3px solid var(--accent);
+    }
+    .bias-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 0.4rem; }
+    .bias-card p { font-size: 0.87rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 0.75rem; }
+    .bias-solution { font-size: 0.82rem; color: var(--accent); font-weight: 600; }
+
+    /* Example numbers */
+    .example-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(164,137,122,0.2);
+      border-radius: 4px;
+      padding: 2.5rem;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+    .example-box:hover { border-color: var(--accent); }
+    .example-result { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
+    .example-desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* Life event cards */
+    .life-event {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 1.75rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .life-event:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(33,39,30,0.1); }
+    .life-event .icon { font-size: 2.25rem; margin-bottom: 0.75rem; }
+    .life-event h4 { font-size: 0.95rem; font-weight: 700; color: var(--dark); margin-bottom: 0.4rem; }
+    .life-event p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+    .cta-band { background: var(--dark); padding: 80px 5%; text-align: center; }
+    .cta-band h2 { color: var(--white); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 300; margin-bottom: 1rem; }
+    .cta-band h2 strong { font-weight: 700; color: var(--accent); }
+    .cta-band p { color: rgba(255,255,255,0.55); margin-bottom: 2.5rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">KRAFT <span>FINANS</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="om-oss.html">Om oss</a></li>
+    <li><a href="hvorfor-radgiver.html" class="active">Hvorfor rådgiver</a></li>
+    <li><a href="radgivere.html">Rådgivere</a></li>
+    <li><a href="produkter.html">Produkter</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Ta kontakt</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <span class="section-label">Verdien av rådgivning</span>
+    <h1>Hvorfor en personlig <strong>finansiell rådgiver?</strong></h1>
+    <p class="lead">Forskning viser konsekvent at investorer med profesjonell rådgiver oppnår betydelig bedre resultater over tid – ikke bare på grunn av bedre produktvalg, men fordi en rådgiver hjelper deg å ta rasjonelle beslutninger når det er som vanskeligst.</p>
+  </div>
+</div>
+
+<!-- SECTION 1: ADVISOR'S ALPHA -->
+<section class="bg-white">
+  <div class="container">
+    <div class="grid-2" style="align-items:start;gap:5rem;">
+      <div>
+        <span class="section-label">Vanguard Research</span>
+        <h2 class="section-title">Advisor's Alpha – <strong>3% merverdi per år</strong></h2>
+        <div class="section-divider"></div>
+        <p style="color:var(--text-muted);margin-bottom:2rem;line-height:1.75;">
+          Vanguard, en av verdens største fondsforvaltere, har gjort omfattende forskning på verdien av finansielle rådgivere. Konklusjonen er klar: en god rådgiver skaper typisk omtrent 3% ekstra nettoverdistigning per år – det de kaller «Advisor's Alpha».
+        </p>
+        <p style="color:var(--text-muted);margin-bottom:2.5rem;line-height:1.75;">
+          Denne merverdien kommer ikke primært fra å plukke de riktige aksjene. Den kommer fra atferdscoaching, riktig strukturering, skatteoptimalisering og disiplinert rebalansering – tjenester som er vanskelige å gjøre selv uten erfaring.
+        </p>
+
+        <h3 style="font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:1.5rem;">Fordeling av merverdi</h3>
+
+        <div class="alpha-row">
+          <span class="alpha-label">Atferdscoaching</span>
+          <div class="alpha-bar-wrap"><div class="alpha-bar" style="width:50%;"></div></div>
+          <span class="alpha-pct">1,50%</span>
+        </div>
+        <div class="alpha-row">
+          <span class="alpha-label">Aktivaallokering</span>
+          <div class="alpha-bar-wrap"><div class="alpha-bar" style="width:25%;"></div></div>
+          <span class="alpha-pct">0,75%</span>
+        </div>
+        <div class="alpha-row">
+          <span class="alpha-label">Skatteoptimalisering</span>
+          <div class="alpha-bar-wrap"><div class="alpha-bar" style="width:15%;"></div></div>
+          <span class="alpha-pct">0,45%</span>
+        </div>
+        <div class="alpha-row">
+          <span class="alpha-label">Rebalansering</span>
+          <div class="alpha-bar-wrap"><div class="alpha-bar" style="width:12%;"></div></div>
+          <span class="alpha-pct">0,35%</span>
+        </div>
+        <div style="border-top:2px solid var(--accent);padding-top:1rem;margin-top:0.5rem;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-weight:700;color:var(--dark);">Total Advisor's Alpha</span>
+          <span style="font-size:1.4rem;font-weight:700;color:var(--accent);">≈ 3,0%</span>
+        </div>
+        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.75rem;">Kilde: Vanguard, «Putting a value on your value: Quantifying Vanguard Advisor's Alpha»</p>
+      </div>
+      <div style="background:var(--dark);border-radius:4px;padding:3rem;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:400px;">
+        <div style="font-size:clamp(5rem,10vw,8rem);font-weight:700;color:var(--accent);line-height:1;">3%</div>
+        <div style="color:rgba(255,255,255,0.7);font-size:1.1rem;margin-top:0.75rem;margin-bottom:2rem;">Ekstra avkastning per år</div>
+        <div style="background:rgba(164,137,122,0.1);border:1px solid rgba(164,137,122,0.25);border-radius:4px;padding:1.5rem;">
+          <p style="color:rgba(255,255,255,0.55);font-size:0.88rem;line-height:1.7;">Over 20 år betyr 3% ekstra avkastning at en portefølje på <strong style="color:var(--accent);">1 million kr</strong> vokser til <strong style="color:var(--accent);">5,4 mill</strong> i stedet for <strong style="color:var(--white);">3,9 mill.</strong> – en forskjell på 1,5 millioner kroner.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: 6 REASONS -->
+<section class="bg-light">
+  <div class="container">
+    <span class="section-label">Konkrete fordeler</span>
+    <h2 class="section-title">Seks grunner til å velge <strong>en dedikert rådgiver</strong></h2>
+    <div class="section-divider"></div>
+    <div class="grid-3" style="margin-top:2rem;">
+      <div class="reason-card">
+        <div class="reason-number">01</div>
+        <h3>Unngå kostbare feil</h3>
+        <p>DALBAR-studien viser at gjennomsnittsinvestoren oppnår 1,5–3% lavere avkastning enn indeksen hvert eneste år – primært på grunn av emosjonelle beslutninger. En rådgiver er bufferen mellom deg og dyre feil.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-number">02</div>
+        <h3>Helhetlig plan</h3>
+        <p>God investering er ikke isolert. En rådgiver ser skatt, pensjon, forsikring, bolig og investeringer i sammenheng og lager en integrert plan som er langt mer effektiv enn å håndtere hvert element separat.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-number">03</div>
+        <h3>Eksklusivt produkttilgang</h3>
+        <p>Gjennom oss får du tilgang til fond, strukturerte produkter og private equity-muligheter som ikke er tilgjengelige for privatpersoner direkte. Minstenivåer på millioner senkes til hundretusener gjennom vår plattform.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-number">04</div>
+        <h3>Tid er penger</h3>
+        <p>Å holde seg oppdatert på markeder, skatteregler, pensjonsendringer og nye investeringsprodukter er et fulltidsjobb. Vi gjør det for deg, slik at du kan bruke din tid på det du er god på og elsker.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-number">05</div>
+        <h3>Ro i urolige markeder</h3>
+        <p>Historien viser at de fleste store tap skjer når panikk-salg treffer markedsbunnen. Din rådgiver gir deg perspektiv og fakta når det stormer – og sørger for at du holder kursen mot dine langsiktige mål.</p>
+      </div>
+      <div class="reason-card">
+        <div class="reason-number">06</div>
+        <h3>Skatteoptimalisering</h3>
+        <p>Riktig struktur på investeringene dine – valg av investeringskonto, aksjesparekonto, AS eller privat eierskap – kan spare deg for betydelige summer i skatt over tid. Vi hjelper deg å utnytte regelverket fullt ut.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: BEHAVIORAL FINANCE -->
+<section class="bg-white">
+  <div class="container">
+    <div class="grid-2" style="align-items:start;gap:5rem;">
+      <div>
+        <span class="section-label">Atferdsøkonomi</span>
+        <h2 class="section-title">Hjernen din er <strong>ikke laget for investering</strong></h2>
+        <div class="section-divider"></div>
+        <p style="color:var(--text-muted);margin-bottom:1.5rem;line-height:1.75;">
+          DALBAR-studien har siden 1994 dokumentert hvert år at gjennomsnittsinvestoren konsekvent underpresterer markedet – ikke fordi de velger feil produkter, men fordi de handler på feil tidspunkt. Hjernen vår er rett og slett ikke bygget for rasjonell investeringsbeslutning.
+        </p>
+        <div class="pullquote">
+          <p>«Den største fienden til en god investerings­plan er ikke markedet – det er investoren selv. En rådgivers viktigste jobb er å beskytte deg fra deg selv.»</p>
+          <cite>DALBAR-rapporten, 2024</cite>
+        </div>
+        <p style="color:var(--text-muted);margin-top:1.5rem;line-height:1.75;">
+          Gjennom systematisk atferdscoaching hjelper vi deg å identifisere og overvinne dine egne kognitive skjevheter – og ta beslutninger basert på logikk og langsiktig plan, ikke frykt og grådighet.
+        </p>
+      </div>
+      <div>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:1.5rem;">Vanlige kognitive feller – og hvordan vi hjelper</h3>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div class="bias-card">
+            <h4>Tapsaversjon</h4>
+            <p>Du føler et tap dobbelt så sterkt som en tilsvarende gevinst. Dette fører til panikksalg i nedgangsmarkeder og at du holder tapende investeringer for lenge.</p>
+            <span class="bias-solution">→ Vi holder deg til den langsiktige planen med data og historisk perspektiv.</span>
+          </div>
+          <div class="bias-card">
+            <h4>Nyhetsbias (recency bias)</h4>
+            <p>Du ekstrapolerer nylige trender inn i fremtiden. Etter en oppgang tror du markedet alltid stiger. Etter et fall ser alt mørkt ut.</p>
+            <span class="bias-solution">→ Vi hjelper deg å se gjennom kortsiktig støy til langsiktige trender.</span>
+          </div>
+          <div class="bias-card">
+            <h4>Flokkmentalitet</h4>
+            <p>Du følger det alle andre gjør – kjøper toppt og selger bunnt fordi det føles trygt å gjøre det alle andre gjør.</p>
+            <span class="bias-solution">→ Vi er kontrære på dine vegne og utnytter markedets irrasjonalitet.</span>
+          </div>
+          <div class="bias-card">
+            <h4>Overkonfidens</h4>
+            <p>Etter noen gode investeringer er det lett å tro man er bedre enn markedet. Statistikken viser at svært få er det over tid.</p>
+            <span class="bias-solution">→ Vi sikrer diversifisering og disiplin uavhengig av markedshumøret.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: CONCRETE EXAMPLE -->
+<section class="bg-dark">
+  <div class="container">
+    <span class="section-label" style="color:var(--accent);">Et konkret eksempel</span>
+    <h2 class="section-title light">1 million kroner – <strong style="color:var(--accent);">20 år frem i tid</strong></h2>
+    <div class="section-divider"></div>
+    <p style="color:rgba(255,255,255,0.55);max-width:680px;margin-bottom:3rem;line-height:1.75;">
+      La oss gjøre det konkret. Du investerer 1 million kroner i dag. Med en rådgiver antar vi 10% gjennomsnittlig årlig avkastning (markedsavkastning pluss Advisor's Alpha). Uten rådgiver antar vi 7% (typisk for selvstyrte investorer som underpresterer markedet). Her er resultatet etter 20 år:
+    </p>
+    <div class="grid-3" style="margin-bottom:3rem;">
+      <div class="example-box">
+        <div style="font-size:0.75rem;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;font-weight:600;">Uten rådgiver · 7% p.a.</div>
+        <div class="example-result">3,87 mill.</div>
+        <div class="example-desc">etter 20 år</div>
+      </div>
+      <div class="example-box" style="border-color:var(--accent);">
+        <div style="font-size:0.75rem;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;font-weight:600;">Med rådgiver · 10% p.a.</div>
+        <div class="example-result" style="font-size:clamp(2.2rem,4.5vw,3.8rem);">6,73 mill.</div>
+        <div class="example-desc">etter 20 år</div>
+      </div>
+      <div class="example-box">
+        <div style="font-size:0.75rem;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:1rem;font-weight:600;">Forskjellen</div>
+        <div class="example-result" style="color:var(--white);">+2,86 mill.</div>
+        <div class="example-desc">ekstra formue</div>
+      </div>
+    </div>
+    <p style="font-size:0.78rem;color:rgba(255,255,255,0.3);text-align:center;">Eksempelet er illustrativt. Historisk avkastning er ingen garanti for fremtidig avkastning. Ingen skatt er fratrukket i eksempelet.</p>
+  </div>
+</section>
+
+<!-- SECTION 5: LIFE EVENTS -->
+<section class="bg-light">
+  <div class="container">
+    <span class="section-label">Når trenger du hjelp?</span>
+    <h2 class="section-title">Livshendelser som gjør <strong>rådgiver ekstra viktig</strong></h2>
+    <div class="section-divider"></div>
+    <p class="lead" style="margin-bottom:3rem;">Noen livshendelser krever umiddelbar og kompetent finansiell planlegging. Hvis du befinner deg i én av disse situasjonene, er det viktigere enn noen gang å ha en god rådgiver ved din side.</p>
+    <div class="grid-auto">
+      <div class="life-event">
+        <div class="icon">💰</div>
+        <h4>Arv eller gave</h4>
+        <p>Et plutselig arveoppgjør krever rask og klok planlegging for å unngå store skattebelastninger og dårlige hastiginvesteringer.</p>
+      </div>
+      <div class="life-event">
+        <div class="icon">📈</div>
+        <h4>Lønnsøkning eller bonus</h4>
+        <p>Når inntekten øker kraftig, er det avgjørende å strukturere sparingen riktig fra dag én for å maksimere skatteeffektiviteten.</p>
+      </div>
+      <div class="life-event">
+        <div class="icon">⚖️</div>
+        <h4>Skilsmisse</h4>
+        <p>Skifte av ekteskapelig formue er komplekst. En finansrådgiver hjelper deg å forstå hva du har krav på og bygge en ny fremtid.</p>
+      </div>
+      <div class="life-event">
+        <div class="icon">🚀</div>
+        <h4>Etablere bedrift</h4>
+        <p>Valg av selskapsstruktur, pensjonssparing og eierskap har store konsekvenser for hva du sitter igjen med etter skatt.</p>
+      </div>
+      <div class="life-event">
+        <div class="icon">🌅</div>
+        <h4>Pensjonering nærmer seg</h4>
+        <p>De siste 5–10 årene før pensjon er kritiske. Strategien bør justeres for å sikre stabil inntekt og bevare kapital.</p>
+      </div>
+      <div class="life-event">
+        <div class="icon">🏠</div>
+        <h4>Eiendomsinvestering</h4>
+        <p>Kjøp av næringseiendom eller utleieobjekt krever solid analyse av finansiering, skattestruktur og alternativkostnad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: FAQ -->
+<section class="bg-white">
+  <div class="container-sm">
+    <span class="section-label">Vanlige spørsmål</span>
+    <h2 class="section-title">Spørsmål vi ofte <strong>får fra nye kunder</strong></h2>
+    <div class="section-divider"></div>
+    <div style="margin-top:2rem;">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Hva koster det å ha en rådgiver hos Kraft Finans?</button>
+        <div class="faq-answer"><p>Vi jobber med honorarbasert rådgivning. Det betyr at vi tar et fast honorar basert på porteføljestørrelse – typisk 0,5–1% per år av forvaltet kapital. Du betaler aldri skjulte provisjoner. Det første møtet er alltid gratis og uforpliktende, der vi gjennomgår din situasjon og forteller deg hva vi kan tilby.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Hva er minimumsbeløpet for å bruke dere?</button>
+        <div class="faq-answer"><p>For aktiv porteføljeforvaltning anbefaler vi et startpunkt på minimum 500 000 kroner, da det gjør det mulig å bygge en virkelig diversifisert portefølje. For fondssparing og investeringsrådgivning er minimumsnivåene betydelig lavere. Ta kontakt for en uforpliktende prat om hva som passer din situasjon.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Hva er forskjellen på dere og en bank?</button>
+        <div class="faq-answer"><p>En bank er interessert i å selge egne produkter og tjenester. Vi er 100% uavhengige og har ingen produkter vi er forpliktet til å selge. Vi velger alltid de beste løsningene for deg på tvers av hele markedet. I tillegg er vår rådgiving langt mer helhetlig – vi ser ikke bare på plasseringer, men på hele din økonomi inkludert skatt, pensjon, forsikring og arv.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Kan jeg fortsatt bestemme selv over mine investeringer?</button>
+        <div class="faq-answer"><p>Absolutt. Vi er din rådgiver, ikke din forvalter med fullmakt (med mindre du ønsker det). Du tar alltid de endelige beslutningene. Vår rolle er å gi deg best mulig grunnlag for å ta gode beslutninger, presentere alternativer og være ærlige om risikoer og muligheter.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Hvordan er pengene mine sikret?</button>
+        <div class="faq-answer"><p>Pengene dine er til enhver tid dine og oppbevares hos godkjente forvaltere og banker, atskilt fra Kraft Finans sin virksomhet. Kraft Finans er autorisert av Finanstilsynet og følger alle norske og europeiske regler for investor­beskyttelse. I tillegg er kundeinnskudd dekket av Bankenes Sikringsfond opptil 2 millioner kroner per bank.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Hva skjer med porteføljen min i en markedskrise?</button>
+        <div class="faq-answer"><p>En markedskrise er nøyaktig når verdien av en god rådgiver er som størst. Vi kontakter deg proaktivt, gir deg perspektiv og fakta om hva som skjer i markedet, og hjelper deg å unngå den mest kostbare feilen: å selge på bunn. Vi har gjennom 30 år navigert finanskrisen i 2008, coronakrisen i 2020 og andre turbulente perioder – alltid med kundenes langsiktige mål i fokus.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <h2>Klar til å oppleve <strong>verdien av god rådgivning?</strong></h2>
+  <p>Bestill et gratis og uforpliktende første møte. Vi kartlegger din situasjon og viser deg hva vi konkret kan gjøre for deg.</p>
+  <a href="kontakt.html" class="btn btn-primary">Bestill gratis samtale</a>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><a class="nav-logo" href="index.html">KRAFT <span>FINANS</span></a><p style="margin-top:1rem;color:rgba(255,255,255,0.38);font-size:0.88rem;">Uavhengig investeringsrådgivning fra Sandnes. Vi forvalter din formue med din fremtid i fokus.</p></div>
+    <div class="footer-col"><h4>Navigasjon</h4><ul><li><a href="om-oss.html">Om oss</a></li><li><a href="hvorfor-radgiver.html">Hvorfor rådgiver</a></li><li><a href="radgivere.html">Rådgivere</a></li><li><a href="produkter.html">Produkter</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+    <div class="footer-col"><h4>Tjenester</h4><ul><li><a href="produkter.html">Porteføljeforvaltning</a></li><li><a href="produkter.html">Investeringsrådgivning</a></li><li><a href="produkter.html">Kraft Finans Fond</a></li><li><a href="produkter.html">Bedriftsrådgivning</a></li><li><a href="produkter.html">Formuesplanlegging</a></li></ul></div>
+    <div class="footer-col"><h4>Kontakt</h4><ul><li><a href="#">Larsamyrå 18, Sandnes</a></li><li><a href="tel:+4751977440">51 97 74 40</a></li><li><a href="mailto:sandnes@kraftfinans.no">sandnes@kraftfinans.no</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Kraft Finans AS · Autorisert av Finanstilsynet</p><p><a href="#" style="color:rgba(255,255,255,0.3);text-decoration:none;">Personvern</a></p></div>
+</footer>
+
+<script>
+  function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
+  function toggleFaq(btn){
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>

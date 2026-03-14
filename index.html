@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kraft Finans – Uavhengig investeringsrådgivning fra Sandnes</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── HOME HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(var(--nav-height) + 80px) 5% 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(164,137,122,0.13) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 30%, rgba(164,137,122,0.08) 0%, transparent 50%);
+    }
+    .hero-content { position: relative; max-width: 860px; }
+    .hero-eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+      border-bottom: 1px solid rgba(164,137,122,0.4);
+      padding-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .hero-title {
+      color: var(--white);
+      font-size: clamp(2.4rem, 5.5vw, 4rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.01em;
+    }
+    .hero-title strong { font-weight: 700; color: var(--accent); }
+    .hero-sub {
+      color: rgba(255,255,255,0.62);
+      font-size: 1.15rem;
+      max-width: 620px;
+      margin: 0 auto 2.75rem;
+      line-height: 1.75;
+    }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--dark);
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding: 3rem 5%;
+    }
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .stat-item { text-align: center; }
+
+    /* ── SPLIT SECTION ── */
+    .split-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .split-left {
+      padding: 100px 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--white);
+    }
+    .split-right {
+      background: var(--dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 5%;
+      text-align: center;
+    }
+    .big-number {
+      font-size: clamp(5rem, 12vw, 9rem);
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .big-number-sub {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── SERVICES GRID ── */
+    .service-tile {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 2rem;
+      text-decoration: none;
+      color: var(--text);
+      display: block;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .service-tile:hover {
+      border-bottom-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(33,39,30,0.1);
+    }
+    .service-tile .icon { font-size: 2rem; margin-bottom: 1rem; }
+    .service-tile h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--dark); }
+    .service-tile p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonial {
+      background: var(--white);
+      border-radius: 4px;
+      padding: 2rem;
+      border-left: 3px solid var(--accent);
+    }
+    .testimonial-text {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--dark);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .testimonial-author { font-size: 0.8rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: var(--dark);
+      padding: 80px 5%;
+      text-align: center;
+    }
+    .cta-band h2 { color: var(--white); font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 300; margin-bottom: 1.5rem; }
+    .cta-band h2 strong { font-weight: 700; color: var(--accent); }
+    .cta-band p { color: rgba(255,255,255,0.55); margin-bottom: 2.5rem; font-size: 1.05rem; }
+
+    @media (max-width: 768px) {
+      .split-section { grid-template-columns: 1fr; }
+      .split-left { padding: 70px 1.5rem; }
+      .split-right { padding: 60px 1.5rem; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">KRAFT <span>FINANS</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="om-oss.html">Om oss</a></li>
+    <li><a href="hvorfor-radgiver.html">Hvorfor rådgiver</a></li>
+    <li><a href="radgivere.html">Rådgivere</a></li>
+    <li><a href="produkter.html">Produkter</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Ta kontakt</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow">Kraft Finans · Sandnes · Uavhengig rådgivning siden 1994</span>
+    <h1 class="hero-title">
+      Din formue fortjener<br>
+      <strong>en dedikert rådgiver</strong>
+    </h1>
+    <p class="hero-sub">
+      Vi hjelper privatpersoner, familier og bedrifter med å ta kloke finansielle beslutninger – slik at du kan fokusere på det som virkelig betyr noe i livet.
+    </p>
+    <div class="hero-buttons">
+      <a href="kontakt.html" class="btn btn-primary">Bestill gratis samtale</a>
+      <a href="hvorfor-radgiver.html" class="btn btn-ghost">Hvorfor rådgiver?</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-number">30+</span>
+      <span class="stat-label">År med erfaring</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">10</span>
+      <span class="stat-label">Kontorer i Skandinavia</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">100%</span>
+      <span class="stat-label">Uavhengig rådgivning</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-number">6</span>
+      <span class="stat-label">Rådgivere i Sandnes</span>
+    </div>
+  </div>
+</div>
+
+<!-- SPLIT: 3% -->
+<div class="split-section">
+  <div class="split-left">
+    <span class="section-label">Verdien av god rådgivning</span>
+    <h2 class="section-title">Rådgivere skaper <strong>målbar meravkastning</strong></h2>
+    <div class="section-divider"></div>
+    <p style="color:var(--text-muted);margin-bottom:1.25rem;line-height:1.75;">
+      Vanguard Research viser at en god finansiell rådgiver typisk skaper omtrent <strong>3% ekstra avkastning per år</strong> for sine kunder – sammenlignet med investorer som gjør det alene. Over 20–30 år utgjør dette en enorm forskjell for din formue.
+    </p>
+    <p style="color:var(--text-muted);margin-bottom:2rem;line-height:1.75;">
+      Verdien kommer fra atferdscoaching, skatteoptimalisering, strategisk allokering og løpende rebalansering – tjenester du kun får gjennom en dedikert rådgiver.
+    </p>
+    <a href="hvorfor-radgiver.html" class="btn btn-dark">Les mer om verdien</a>
+  </div>
+  <div class="split-right">
+    <div class="big-number">3%</div>
+    <div class="big-number-sub">Ekstra avkastning per år</div>
+    <p style="color:rgba(255,255,255,0.4);font-size:0.78rem;margin-top:1.5rem;letter-spacing:0.06em;">Kilde: Vanguard Advisor's Alpha</p>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="bg-light">
+  <div class="container">
+    <span class="section-label">Hva vi tilbyr</span>
+    <h2 class="section-title">Våre <strong>tjenester</strong></h2>
+    <div class="section-divider"></div>
+    <div class="grid-auto" style="margin-top:2rem;">
+      <a href="produkter.html" class="service-tile">
+        <div class="icon">📈</div>
+        <h3>Porteføljeforvaltning</h3>
+        <p>Aktiv forvaltning av din investeringsportefølje med løpende tilpasning og kvartalsvise rapporter.</p>
+      </a>
+      <a href="produkter.html" class="service-tile">
+        <div class="icon">🎯</div>
+        <h3>Investeringsrådgivning</h3>
+        <p>Personlig rådgivning med helhetlig plan som dekker skatt, pensjon, arv og forsikring.</p>
+      </a>
+      <a href="produkter.html" class="service-tile">
+        <div class="icon">🏦</div>
+        <h3>Kraft Finans Fond</h3>
+        <p>Invester i våre egne fond – forvaltet av et erfarent team med langsiktig perspektiv.</p>
+      </a>
+      <a href="produkter.html" class="service-tile">
+        <div class="icon">🏢</div>
+        <h3>Bedriftsrådgivning</h3>
+        <p>Profesjonell forvaltning av overskuddslikviditet, pensjonsmidler og egenkapital for bedrifter.</p>
+      </a>
+      <a href="produkter.html" class="service-tile">
+        <div class="icon">🛡</div>
+        <h3>Formuesplanlegging</h3>
+        <p>Helhetlig gjennomgang av din totaløkonomi – pensjon, forsikring, eiendom og testamente.</p>
+      </a>
+      <a href="produkter.html" class="service-tile">
+        <div class="icon">🌍</div>
+        <h3>Bærekraftige investeringer</h3>
+        <p>Invester med samvittigheten i behold med ESG-screenet portefølje og bærekraftige fond.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM PREVIEW -->
+<section class="bg-white">
+  <div class="container">
+    <span class="section-label">Sandnes-kontoret</span>
+    <h2 class="section-title">Møt <strong>teamet ditt</strong></h2>
+    <div class="section-divider"></div>
+    <p class="lead" style="margin-bottom:3rem;">Våre seks rådgivere kombinerer lokal kunnskap med bred finansekspertise. Vi er dedikerte til langvarige relasjoner og personlig oppfølging.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.5rem;margin-bottom:3rem;">
+      <div class="advisor-card">
+        <img class="advisor-photo" src="alf-rune-svee.jpg" alt="Alf Rune Svee" />
+        <div class="advisor-info">
+          <h3>Alf Rune Svee</h3>
+          <span class="advisor-role">Kontorleder</span>
+        </div>
+      </div>
+      <div class="advisor-card">
+        <img class="advisor-photo" src="erik-isaksen.jpg" alt="Erik Isaksen" />
+        <div class="advisor-info">
+          <h3>Erik Isaksen</h3>
+          <span class="advisor-role">Formuesforvalter</span>
+        </div>
+      </div>
+      <div class="advisor-card">
+        <img class="advisor-photo" src="fredrik-tanum.jpg" alt="Fredrik Tanum" />
+        <div class="advisor-info">
+          <h3>Fredrik Tanum</h3>
+          <span class="advisor-role">Formuesforvalter</span>
+        </div>
+      </div>
+      <div class="advisor-card">
+        <img class="advisor-photo" src="kristian-willumsen.jpg" alt="Kristian Willumsen" />
+        <div class="advisor-info">
+          <h3>Kristian Willumsen</h3>
+          <span class="advisor-role">Formuesforvalter</span>
+        </div>
+      </div>
+      <div class="advisor-card">
+        <img class="advisor-photo" src="kristoffer-kverneland.jpg" alt="Kristoffer Kverneland" />
+        <div class="advisor-info">
+          <h3>Kristoffer Kverneland</h3>
+          <span class="advisor-role">Formuesforvalter</span>
+        </div>
+      </div>
+      <div class="advisor-card">
+        <img class="advisor-photo" src="frode-salvesen.jpg" alt="Frode Salvesen" />
+        <div class="advisor-info">
+          <h3>Frode Salvesen</h3>
+          <span class="advisor-role">Formuesforvalter</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <a href="radgivere.html" class="btn btn-dark">Se alle profiler</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="bg-light">
+  <div class="container">
+    <span class="section-label">Hva kundene sier</span>
+    <h2 class="section-title">Erfaringer fra <strong>våre kunder</strong></h2>
+    <div class="section-divider"></div>
+    <div class="grid-3" style="margin-top:2rem;">
+      <div class="testimonial">
+        <p class="testimonial-text">«Etter at Kraft Finans tok over forvaltningen av sparepengene mine, sover jeg mye bedre om natten. Jeg trenger ikke lenger å bekymre meg for markedssvingninger – de håndterer det for meg og holder meg oppdatert.»</p>
+        <span class="testimonial-author">Gunnar Bakke – Sandnes</span>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">«Da vi solgte familiebedriften, hadde vi plutselig en stor sum penger vi ikke visste hva vi skulle gjøre med. Alf Rune og teamet laget en helhetlig plan for oss på rekordtid. Profesjonell og varm service.»</p>
+        <span class="testimonial-author">Marit og Stein Ørjansen – Stavanger</span>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">«Som oljemann med gode inntekter hadde jeg alltid utsatt å ta grep om pensjon og sparing. Kraft Finans åpnet øynene mine for hvor mye jeg gikk glipp av. Angrer bare på at jeg ikke startet tidligere.»</p>
+        <span class="testimonial-author">Terje Mæland – Sola</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Klar til å ta kontroll over <strong>din finansielle fremtid?</strong></h2>
+  <p>Det første møtet er alltid uforpliktende og gratis. Vi kartlegger din situasjon og forteller deg hva vi kan gjøre for deg.</p>
+  <a href="kontakt.html" class="btn btn-primary">Bestill gratis samtale</a>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><a class="nav-logo" href="index.html">KRAFT <span>FINANS</span></a><p style="margin-top:1rem;color:rgba(255,255,255,0.38);font-size:0.88rem;">Uavhengig investeringsrådgivning fra Sandnes. Vi forvalter din formue med din fremtid i fokus.</p></div>
+    <div class="footer-col"><h4>Navigasjon</h4><ul><li><a href="om-oss.html">Om oss</a></li><li><a href="hvorfor-radgiver.html">Hvorfor rådgiver</a></li><li><a href="radgivere.html">Rådgivere</a></li><li><a href="produkter.html">Produkter</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+    <div class="footer-col"><h4>Tjenester</h4><ul><li><a href="produkter.html">Porteføljeforvaltning</a></li><li><a href="produkter.html">Investeringsrådgivning</a></li><li><a href="produkter.html">Kraft Finans Fond</a></li><li><a href="produkter.html">Bedriftsrådgivning</a></li><li><a href="produkter.html">Formuesplanlegging</a></li></ul></div>
+    <div class="footer-col"><h4>Kontakt</h4><ul><li><a href="#">Larsamyrå 18, Sandnes</a></li><li><a href="tel:+4751977440">51 97 74 40</a></li><li><a href="mailto:sandnes@kraftfinans.no">sandnes@kraftfinans.no</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Kraft Finans AS · Autorisert av Finanstilsynet</p><p><a href="#" style="color:rgba(255,255,255,0.3);text-decoration:none;">Personvern</a></p></div>
+</footer>
+
+<script>function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}</script>
+</body>
+</html>

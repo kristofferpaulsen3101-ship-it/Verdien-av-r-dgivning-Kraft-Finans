@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt oss – Kraft Finans Sandnes</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .contact-info-panel {
+      padding-top: 0.5rem;
+    }
+
+    .contact-detail {
+      margin-bottom: 1.75rem;
+    }
+    .contact-detail .detail-label {
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .contact-detail .detail-value {
+      color: rgba(255,255,255,0.78);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+    .contact-detail .detail-value a {
+      color: rgba(255,255,255,0.78);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-detail .detail-value a:hover { color: var(--accent); }
+
+    .free-meeting-box {
+      background: rgba(164,137,122,0.1);
+      border: 1px solid rgba(164,137,122,0.25);
+      border-radius: 4px;
+      padding: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .free-meeting-box h4 { color: var(--accent); font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .free-meeting-box p { color: rgba(255,255,255,0.58); font-size: 0.88rem; line-height: 1.7; }
+
+    /* Success message */
+    .success-message {
+      display: none;
+      background: rgba(74,124,89,0.15);
+      border: 1px solid rgba(74,124,89,0.4);
+      border-radius: 4px;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .success-message .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .success-message h3 { color: var(--white); font-size: 1.25rem; margin-bottom: 0.6rem; }
+    .success-message p { color: rgba(255,255,255,0.6); font-size: 0.9rem; line-height: 1.7; }
+
+    /* FAQ section */
+    .faq-section { padding: 80px 5%; background: var(--light-bg); }
+
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">KRAFT <span>FINANS</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="om-oss.html">Om oss</a></li>
+    <li><a href="hvorfor-radgiver.html">Hvorfor rådgiver</a></li>
+    <li><a href="radgivere.html">Rådgivere</a></li>
+    <li><a href="produkter.html">Produkter</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Ta kontakt</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-content">
+    <span class="section-label">Ta kontakt</span>
+    <h1>Vi ser frem til å <strong>høre fra deg</strong></h1>
+    <p class="lead">Det første møtet er alltid gratis og uforpliktende. Vi setter av tid til å forstå din situasjon og fortelle deg ærlig hva vi kan gjøre for deg – uten forpliktelser.</p>
+  </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<section class="bg-dark">
+  <div class="contact-layout">
+
+    <!-- LEFT: OFFICE INFO -->
+    <div class="contact-info-panel">
+      <h2 style="color:var(--white);font-size:1.4rem;font-weight:300;margin-bottom:2rem;">Kraft Finans <strong style="font-weight:700;">Sandnes</strong></h2>
+
+      <div class="contact-detail">
+        <div class="detail-label">Adresse</div>
+        <div class="detail-value">
+          Larsamyrå 18<br>
+          4313 Sandnes, Norge
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="detail-label">Telefon</div>
+        <div class="detail-value">
+          <a href="tel:+4751977440">51 97 74 40</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="detail-label">E-post</div>
+        <div class="detail-value">
+          <a href="mailto:sandnes@kraftfinans.no">sandnes@kraftfinans.no</a>
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="detail-label">Åpningstider</div>
+        <div class="detail-value">
+          Mandag – fredag<br>
+          08:00 – 16:00
+        </div>
+      </div>
+
+      <div class="contact-detail">
+        <div class="detail-label">Tilgjengelighet</div>
+        <div class="detail-value" style="font-size:0.88rem;">
+          Din rådgiver er tilgjengelig på direktenummer utenom åpningstider for eksisterende kunder. Vi besvarer alltid henvendelser innen neste virkedag.
+        </div>
+      </div>
+
+      <div class="free-meeting-box">
+        <h4>Gratis første møte</h4>
+        <p>Vi tilbyr alle nye kunder et gratis og uforpliktende første møte – enten hos oss på Larsamyrå 18 eller via video. I møtet kartlegger vi din situasjon, svarer på spørsmål og forteller deg konkret hva vi kan gjøre for deg. Ingen salgspresse, bare ærlig rådgivning.</p>
+      </div>
+
+      <div style="margin-top:2.5rem;">
+        <h4 style="color:var(--white);font-size:0.85rem;font-weight:700;margin-bottom:1rem;letter-spacing:0.06em;">DIREKTE TIL RÅDGIVER</h4>
+        <div style="display:flex;flex-direction:column;gap:0.6rem;">
+          <a href="mailto:alf.rune.svee@kraftfinans.no" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Alf Rune Svee (Kontorleder)</a>
+          <a href="mailto:erik.isaksen@kraftfinans.no" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Erik Isaksen</a>
+          <a href="mailto:fredrik.tanum@kraftfinans.no" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Fredrik Tanum</a>
+          <a href="mailto:kristian.willumsen@kraftfinans.no" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Kristian Willumsen</a>
+          <a href="mailto:kristoffer.kverneland@kraftfinans.no" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Kristoffer Kverneland</a>
+          <a href="mailto:frode.salvesen@kraftfinans.no" style="color:rgba(255,255,255,0.5);font-size:0.85rem;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Frode Salvesen</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div>
+      <form class="contact-form" id="contactForm" onsubmit="sendForm(event)">
+        <h3 style="color:var(--white);font-size:1.1rem;font-weight:700;margin-bottom:1.75rem;">Send oss en henvendelse</h3>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fornavn">Fornavn</label>
+            <input type="text" id="fornavn" name="fornavn" placeholder="Ola" required />
+          </div>
+          <div class="form-group">
+            <label for="etternavn">Etternavn</label>
+            <input type="text" id="etternavn" name="etternavn" placeholder="Nordmann" required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="epost">E-post</label>
+            <input type="email" id="epost" name="epost" placeholder="ola@eksempel.no" required />
+          </div>
+          <div class="form-group">
+            <label for="telefon">Telefon</label>
+            <input type="tel" id="telefon" name="telefon" placeholder="+47 000 00 000" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tema">Hva kan vi hjelpe deg med?</label>
+          <select id="tema" name="tema">
+            <option value="">Velg tema...</option>
+            <option value="portefolje">Porteføljeforvaltning</option>
+            <option value="radgivning">Investeringsrådgivning</option>
+            <option value="fond">Kraft Finans Fond</option>
+            <option value="bedrift">Bedriftsrådgivning</option>
+            <option value="formue">Formuesplanlegging</option>
+            <option value="esg">ESG / Bærekraft</option>
+            <option value="annet">Annet</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="kapital">Din omtrentlige investeringskapital</label>
+          <select id="kapital" name="kapital">
+            <option value="">Velg beløp...</option>
+            <option value="under500k">Under 500 000 kr</option>
+            <option value="500k-1m">500 000 – 1 000 000 kr</option>
+            <option value="1m-5m">1 – 5 millioner kr</option>
+            <option value="over5m">Over 5 millioner kr</option>
+            <option value="ikke-oppgi">Vil ikke oppgi</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="melding">Melding</label>
+          <textarea id="melding" name="melding" placeholder="Fortell oss gjerne litt om din situasjon og hva du ønsker å oppnå. Jo mer du deler, jo bedre kan vi forberede oss til et eventuelt møte."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">Send henvendelse →</button>
+        <p class="form-disclaimer">
+          Vi behandler dine personopplysninger konfidensielt i henhold til personvernloven (GDPR). Informasjonen brukes kun til å besvare din henvendelse og vil ikke bli delt med tredjepart. Du kan når som helst be om innsyn eller sletting av dine data.
+        </p>
+      </form>
+
+      <div class="success-message" id="successMsg">
+        <div class="icon">✓</div>
+        <h3>Takk for din henvendelse!</h3>
+        <p>Vi har mottatt meldingen din og vil ta kontakt med deg innen neste virkedag. For umiddelbar kontakt kan du ringe oss på <a href="tel:+4751977440" style="color:var(--accent);">51 97 74 40</a>.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+  <div class="container-sm">
+    <span class="section-label">Før du kontakter oss</span>
+    <h2 class="section-title">Vanlige spørsmål om <strong>å komme i gang</strong></h2>
+    <div class="section-divider"></div>
+
+    <div style="margin-top:2rem;">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Hva skjer i det første møtet?</button>
+        <div class="faq-answer"><p>I det første møtet – som er helt gratis og uforpliktende – bruker vi tid på å forstå deg. Vi stiller spørsmål om din livssituasjon, dine mål, din tidshorisont og din holdning til risiko. Deretter presenterer vi oss og forteller hva vi konkret kan gjøre for deg. Det er ingen salgspresse – vi ønsker at du skal gå hjem og tenke deg om. Mange velger å starte et samarbeid, men det er helt opp til deg.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Hva bør jeg ta med til første møte?</button>
+        <div class="faq-answer"><p>Jo mer informasjon du kan dele, jo mer verdifullt kan vi gjøre møtet. Det kan være nyttig å ha oversikt over dine eksisterende investeringer, pensjonsbevis, forsikringsavtaler og eventuelle boliglån. Men det er ingen krav – mange starter møtet med bare et ønske om å forstå sin situasjon bedre, og det er mer enn nok.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Kan jeg møte dere over video?</button>
+        <div class="faq-answer"><p>Absolutt. Vi tilbyr videomøter via Teams eller Zoom for kunder som foretrekker det eller bor et stykke unna Sandnes. Mange av våre kunder i Stavanger, Jæren og andre deler av Rogaland velger videomøter for hverdagslig oppfølging, mens de første møtene gjerne skjer fysisk på kontoret vårt.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Hvor raskt får jeg svar på henvendelsen min?</button>
+        <div class="faq-answer"><p>Vi besvarer alle henvendelser innen neste virkedag. Hvis du sender en henvendelse på fredag, kan du forvente svar mandag morgen. For hastesaker kan du ringe oss direkte på 51 97 74 40 i åpningstiden mandag–fredag 08:00–16:00.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">Er Kraft Finans autorisert og regulert?</button>
+        <div class="faq-answer"><p>Ja, Kraft Finans AS er autorisert av Finanstilsynet og opererer i samsvar med norsk og europeisk finanslovgivning (MiFID II). Vi er membre av Verdipapirforetakenes Forbund og følger bransjens høyeste etiske standarder. Du kan finne oss i Finanstilsynets offentlige register over verdipapirforetak.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP/LOCATION SECTION -->
+<section class="bg-white" style="padding:60px 5%;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+      <div>
+        <span class="section-label">Finn oss</span>
+        <h2 class="section-title" style="margin-bottom:1.25rem;">Vi holder til i <strong>hjertet av Sandnes</strong></h2>
+        <div class="section-divider"></div>
+        <p style="color:var(--text-muted);margin-bottom:1.5rem;line-height:1.75;">
+          Kontoret vårt ligger på Larsamyrå 18 i Sandnes, rett ved sentrum. Det er gode parkeringsmuligheter i nærheten, og kontoret er lett tilgjengelig med kollektivtransport fra Stavanger og resten av Jæren.
+        </p>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div class="icon-circle light" style="width:40px;height:40px;font-size:1rem;flex-shrink:0;">📍</div>
+            <span style="color:var(--text-muted);font-size:0.9rem;">Larsamyrå 18, 4313 Sandnes</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div class="icon-circle light" style="width:40px;height:40px;font-size:1rem;flex-shrink:0;">🚌</div>
+            <span style="color:var(--text-muted);font-size:0.9rem;">Busslinje 5 og 7 stopper i nærheten</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div class="icon-circle light" style="width:40px;height:40px;font-size:1rem;flex-shrink:0;">🚗</div>
+            <span style="color:var(--text-muted);font-size:0.9rem;">Gratis parkering tilgjengelig i nærliggende garasje</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div class="icon-circle light" style="width:40px;height:40px;font-size:1rem;flex-shrink:0;">♿</div>
+            <span style="color:var(--text-muted);font-size:0.9rem;">Tilgjengelig for bevegelseshemmede</span>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--dark);border-radius:4px;padding:3rem;text-align:center;min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+        <div style="font-size:3rem;margin-bottom:1rem;">🗺️</div>
+        <div style="color:var(--white);font-size:1.1rem;font-weight:700;margin-bottom:0.5rem;">Kraft Finans Sandnes</div>
+        <div style="color:rgba(255,255,255,0.5);font-size:0.9rem;margin-bottom:2rem;">Larsamyrå 18, 4313 Sandnes</div>
+        <a href="https://maps.google.com/?q=Larsamyr%C3%A5+18,+4313+Sandnes" target="_blank" rel="noopener" class="btn btn-ghost" style="font-size:0.82rem;">Åpne i Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><a class="nav-logo" href="index.html">KRAFT <span>FINANS</span></a><p style="margin-top:1rem;color:rgba(255,255,255,0.38);font-size:0.88rem;">Uavhengig investeringsrådgivning fra Sandnes. Vi forvalter din formue med din fremtid i fokus.</p></div>
+    <div class="footer-col"><h4>Navigasjon</h4><ul><li><a href="om-oss.html">Om oss</a></li><li><a href="hvorfor-radgiver.html">Hvorfor rådgiver</a></li><li><a href="radgivere.html">Rådgivere</a></li><li><a href="produkter.html">Produkter</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+    <div class="footer-col"><h4>Tjenester</h4><ul><li><a href="produkter.html">Porteføljeforvaltning</a></li><li><a href="produkter.html">Investeringsrådgivning</a></li><li><a href="produkter.html">Kraft Finans Fond</a></li><li><a href="produkter.html">Bedriftsrådgivning</a></li><li><a href="produkter.html">Formuesplanlegging</a></li></ul></div>
+    <div class="footer-col"><h4>Kontakt</h4><ul><li><a href="#">Larsamyrå 18, Sandnes</a></li><li><a href="tel:+4751977440">51 97 74 40</a></li><li><a href="mailto:sandnes@kraftfinans.no">sandnes@kraftfinans.no</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 Kraft Finans AS · Autorisert av Finanstilsynet</p><p><a href="#" style="color:rgba(255,255,255,0.3);text-decoration:none;">Personvern</a></p></div>
+</footer>
+
+<script>
+  function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
+
+  function toggleFaq(btn){
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  }
+
+  function sendForm(e){
+    e.preventDefault();
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
+    form.style.display = 'none';
+    successMsg.style.display = 'block';
+    // Connect to backend/email service here (e.g. Formspree, Netlify Forms, etc.)
+    // Example: fetch('/api/contact', { method: 'POST', body: new FormData(form) })
+  }
+</script>
+</body>
+</html>
